@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String [] args) {
+        Bank bank = new Bank();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Bank Application!");
+        System.out.println("Enter Account Number: ");
+        int accountNumber = scanner.nextInt();
+        System.out.println("Enter PIN: ");
+        int pin = scanner.nextInt();
+
+        BankAccount account = bank.findAccount(accountNumber, pin);
+        if (account != null) {
+            System.out.println("Login successful. Welcome, " + account.getName() + "!");
+            bank.performTransaction(account);
+        }else{
+            System.out.println("Invalid account number or PIN.");
+        }
+    } 
+}
